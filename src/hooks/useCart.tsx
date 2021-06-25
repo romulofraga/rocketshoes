@@ -73,7 +73,10 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
       const updateCart = [...cart];
       const productIndex = updateCart.findIndex(product => product.id === productId);
 
-      if (productIndex < 0) return;
+      if (productIndex < 0) {
+        toast.error('Erro na remoção do produto');
+        return;
+      }
 
       updateCart.splice(productIndex, 1);
 
@@ -100,6 +103,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
 
       if (stockAmount < amount) {
         toast.error('Quantidade solicitada fora de estoque');
+        return;
       }
 
       updateCart[productIndexToUpdateAmount].amount = amount;
