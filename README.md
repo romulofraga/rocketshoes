@@ -1,6 +1,6 @@
 # rocketshoes
 
 how to run:
-  yarn server
+  yarn server <br>
   yarn start
   
